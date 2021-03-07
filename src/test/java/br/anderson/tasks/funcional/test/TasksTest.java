@@ -1,5 +1,7 @@
 package br.anderson.tasks.funcional.test;
 
+import java.net.MalformedURLException;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,7 +15,7 @@ public class TasksTest {
 	
 	public WebDriver driver;
 	@Before
-	public void setup() {
+	public void setup() throws MalformedURLException {
 		
 		driver = new connectionDriver().startBrowser();
 	}
@@ -67,7 +69,7 @@ public class TasksTest {
 	@After
 	public void tearDown() {
 		
-		driver.close();
+		driver.quit();
 	}
 
 }
