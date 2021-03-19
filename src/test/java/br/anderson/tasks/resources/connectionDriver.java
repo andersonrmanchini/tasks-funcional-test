@@ -14,7 +14,6 @@ public class connectionDriver {
 	protected WebDriver driver;
 	protected ChromeOptions options;
 	protected DesiredCapabilities dc;
-	protected String hubURL = "http://192.168.1.103:4444/wd/hub";
 	
 	public WebDriver startBrowser() throws MalformedURLException {
 		
@@ -23,11 +22,11 @@ public class connectionDriver {
 	    options.addArguments("--no-sandbox");
 	    dc = new DesiredCapabilities();
 	    dc.setCapability(ChromeOptions.CAPABILITY, options);
-		driver = new RemoteWebDriver(new URL(hubURL), dc);
+		driver = new RemoteWebDriver(new URL("http://192.168.1.103:4444/wd/hub"), dc);
 		
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.navigate().to("http://localhost:8001/tasks");
+		driver.navigate().to("http://192.168.1.103:8001/tasks");
 		
 		return driver;
 	}
