@@ -22,11 +22,11 @@ public class connectionDriver {
 	    options.addArguments("--no-sandbox");
 	    dc = new DesiredCapabilities();
 	    dc.setCapability(ChromeOptions.CAPABILITY, options);
-		driver = new RemoteWebDriver(new URL("http://192.168.1.103:4444/wd/hub"), dc);
+		driver = new RemoteWebDriver(new URL("http://192.168.1.102:4444/wd/hub"), dc);
 		
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		driver.navigate().to("http://192.168.1.103:8001/tasks");
+		driver.navigate().to("http://192.168.1.102:8001/tasks");
 		
 		return driver;
 	}
